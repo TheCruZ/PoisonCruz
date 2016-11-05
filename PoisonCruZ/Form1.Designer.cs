@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -44,11 +45,16 @@
             this.tmv = new System.Windows.Forms.TextBox();
             this.ttmac = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
+            this.timer1 = new System.Windows.Forms.Timer(this.components);
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(178, 148);
+            this.button1.Location = new System.Drawing.Point(344, 148);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(140, 30);
             this.button1.TabIndex = 0;
@@ -130,66 +136,126 @@
             // tir
             // 
             this.tir.Location = new System.Drawing.Point(85, 58);
+            this.tir.MaxLength = 15;
             this.tir.Name = "tir";
             this.tir.Size = new System.Drawing.Size(136, 21);
             this.tir.TabIndex = 9;
             this.tir.Text = "192.168.1.1";
+            this.tir.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tir_KeyPress);
             // 
             // tiv
             // 
             this.tiv.Location = new System.Drawing.Point(85, 89);
+            this.tiv.MaxLength = 15;
             this.tiv.Name = "tiv";
             this.tiv.Size = new System.Drawing.Size(136, 21);
             this.tiv.TabIndex = 10;
-            this.tiv.Text = "192.168.1.16";
+            this.tiv.Text = "192.168.1.100";
+            this.tiv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tiv_KeyPress);
             // 
             // tti
             // 
             this.tti.Location = new System.Drawing.Point(85, 122);
+            this.tti.MaxLength = 15;
             this.tti.Name = "tti";
             this.tti.Size = new System.Drawing.Size(136, 21);
             this.tti.TabIndex = 11;
-            this.tti.Text = "192.168.1.15";
+            this.tti.Text = "192.168.1.200";
+            this.tti.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tti_KeyPress);
             // 
             // tmr
             // 
             this.tmr.Location = new System.Drawing.Point(348, 58);
+            this.tmr.MaxLength = 12;
             this.tmr.Name = "tmr";
             this.tmr.Size = new System.Drawing.Size(136, 21);
             this.tmr.TabIndex = 12;
-            this.tmr.Text = "XXXXXXXXXXXX";
+            this.tmr.Text = "ABCDEF123456";
+            this.tmr.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tmr_KeyPress);
             // 
             // tmv
             // 
             this.tmv.Location = new System.Drawing.Point(348, 89);
+            this.tmv.MaxLength = 12;
             this.tmv.Name = "tmv";
             this.tmv.Size = new System.Drawing.Size(136, 21);
             this.tmv.TabIndex = 13;
-            this.tmv.Text = "XXXXXXXXXXXX";
+            this.tmv.Text = "ABCDEF123456";
+            this.tmv.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.tmv_KeyPress);
             // 
             // ttmac
             // 
             this.ttmac.Location = new System.Drawing.Point(348, 122);
+            this.ttmac.MaxLength = 12;
             this.ttmac.Name = "ttmac";
             this.ttmac.Size = new System.Drawing.Size(136, 21);
             this.ttmac.TabIndex = 14;
-            this.ttmac.Text = "XXXXXXXXXXXX";
+            this.ttmac.Text = "ABCDEF123456";
+            this.ttmac.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.ttmac_KeyPress);
             // 
             // label8
             // 
             this.label8.AutoSize = true;
             this.label8.Font = new System.Drawing.Font("Verdana", 6.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(59, 181);
+            this.label8.Location = new System.Drawing.Point(15, 181);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(389, 12);
+            this.label8.Size = new System.Drawing.Size(110, 12);
             this.label8.TabIndex = 15;
-            this.label8.Text = "Recuerda activar el servicio de enrutamiento para transmitir las conexiones!";
+            this.label8.Text = "Status:  Esperando...";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(164, 154);
+            this.textBox1.MaxLength = 5;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(45, 21);
+            this.textBox1.TabIndex = 16;
+            this.textBox1.Text = "1000";
+            this.textBox1.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBox1_KeyPress);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(14, 157);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(144, 13);
+            this.label9.TabIndex = 17;
+            this.label9.Text = "Entre cada paquete ms:";
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(215, 148);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(123, 30);
+            this.button2.TabIndex = 18;
+            this.button2.Text = "Enrutamiento: OFF";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(454, 18);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(27, 19);
+            this.button3.TabIndex = 19;
+            this.button3.Text = "..";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
+            // timer1
+            // 
+            this.timer1.Enabled = true;
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(506, 193);
+            this.ClientSize = new System.Drawing.Size(506, 195);
+            this.Controls.Add(this.button3);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.ttmac);
             this.Controls.Add(this.tmv);
@@ -237,6 +303,11 @@
         private System.Windows.Forms.TextBox tmv;
         private System.Windows.Forms.TextBox ttmac;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.Timer timer1;
     }
 }
 
